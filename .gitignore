@@ -1,0 +1,62 @@
+# ==============================================================================
+# Multi-Target Speaker Extraction - .gitignore
+# ==============================================================================
+
+# 1. Audio Files Strategy | 音频文件策略
+# Ignore all common audio formats by default (protects private data)
+# 默认忽略所有音频格式（保护 .wav 等私有训练数据）
+*.wav
+*.mp3
+*.ogg
+*.m4a
+*.aac
+*.wma
+
+# Exception: Allow FLAC files for sample audio
+# 例外：允许提交 .flac 格式（用于示例音频）
+!*.flac
+
+# ==============================================================================
+# Python & Environment | Python与环境
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment | 虚拟环境
+venv/
+env/
+.venv/
+
+# ==============================================================================
+# IDE / Editor | 编辑器配置
+# ==============================================================================
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ==============================================================================
+# Project Specific | 项目特定
+# ==============================================================================
+# Output directory: Ignore contents but keep folder structure
+# 输出目录：忽略内容但保留文件夹结构
+output/*
+!output/.gitkeep
+
+# Temporary files & Logs | 临时文件与日志
+temp/
+*.tmp
+*.log
+# Model checkpoints | 模型权重
+*.nemo
+*.ckpt
+*.pt
+*.pth

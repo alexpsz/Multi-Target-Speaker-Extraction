@@ -1,0 +1,84 @@
+# Multi-Target Speaker Extraction - Configuration
+# 多目标说话人提取工具 (MTSE) - 配置文件
+
+# ==============================================================================
+# Path Settings | 路径配置
+# ==============================================================================
+paths:
+  # Reference audio root directory (subfolders for each speaker)
+  # 参考音频根目录（每个说话人一个子文件夹）
+  reference_dir: "./enrollment_audio"
+  
+  # Input dataset directory
+  # 待处理数据集目录
+  dataset_dir: "./input_audio"
+  
+  # Output directory
+  # 输出根目录
+  output_dir: "./output"
+
+# ==============================================================================
+# Verification Parameters | 验证参数
+# ==============================================================================
+verification:
+  # Similarity threshold (recommended: 0.65-0.80)
+  # 相似度阈值（推荐范围：0.65-0.80）
+  similarity_threshold: 0.70
+  
+  # Minimum segment duration in seconds
+  # 最小片段时长（秒）
+  min_duration: 0.5
+  
+  # Merge gap - segments closer than this will be merged
+  # 合并间隔 - 小于此间隔的片段将被合并（秒）
+  merge_gap: 0.3
+
+# ==============================================================================
+# VAD (Voice Activity Detection) Parameters | 语音活动检测参数
+# ==============================================================================
+vad:
+  # VAD threshold (0.0-1.0)
+  # VAD阈值
+  threshold: 0.5
+  
+  # Minimum speech duration in milliseconds
+  # 最小语音长度（毫秒）
+  min_speech_duration_ms: 250
+  
+  # Minimum silence duration in milliseconds
+  # 最小静音长度（毫秒）
+  min_silence_duration_ms: 100
+
+# ==============================================================================
+# Device Settings | 设备配置
+# ==============================================================================
+device:
+  # Use CUDA if available
+  # 如果可用则使用CUDA加速
+  use_cuda: true
+
+# ==============================================================================
+# Performance Optimization | 性能优化
+# ==============================================================================
+performance:
+  # Batch size for inference (larger = faster, but uses more VRAM)
+  # 批量推理大小（越大越快，但占用更多显存）
+  batch_size: 32
+  
+  # Number of prefetch workers (0 = disable prefetching)
+  # 预加载线程数（0 = 禁用预加载）
+  prefetch_workers: 2
+
+# ==============================================================================
+# Speaker Management | 说话人管理
+# ==============================================================================
+speaker_management:
+  # Speakers to skip (e.g., ["SpeakerA", "SpeakerB"])
+  # 要跳过的说话人（例如：["说话人A", "说话人B"]）
+  skip_speakers: []
+  
+  # Process only these speakers (takes priority over skip_speakers)
+  # 仅处理这些说话人（优先级高于skip_speakers）
+  # Example: ["SpeakerA"] - only process SpeakerA
+  # 示例：["说话人A"] - 只处理说话人A
+  include_only: []

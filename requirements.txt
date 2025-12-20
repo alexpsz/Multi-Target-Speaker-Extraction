@@ -1,0 +1,28 @@
+# ==============================================================================
+# Multi-Target Speaker Extraction (MTSE) - Dependencies
+# 多目标说话人提取工具 - 依赖列表
+# ==============================================================================
+
+# Core ML Framework | 核心机器学习框架
+# Note: Install PyTorch with CUDA support for GPU acceleration
+# 注意：安装带CUDA支持的PyTorch以启用GPU加速
+# Visit https://pytorch.org for installation instructions
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# NVIDIA NeMo for Speaker Verification | NVIDIA NeMo说话人验证
+# Apache 2.0 License
+nemo_toolkit[asr]>=1.22.0
+
+# Audio Processing | 音频处理
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Utilities | 工具库
+numpy>=1.23.0
+tqdm>=4.65.0
+pyyaml>=6.0.0
+
+# VAD Acceleration (ONNX Runtime) | VAD加速
+# For faster Voice Activity Detection
+onnxruntime>=1.15.0
