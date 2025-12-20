@@ -27,6 +27,9 @@ except ImportError:
 
 from speaker_state_manager import SpeakerManager
 
+# Supported audio formats | 支持的音频格式
+AUDIO_EXTENSIONS = ('.wav', '.flac', '.mp3', '.ogg', '.m4a')
+
 
 class MultiSpeakerVerification:
     """多说话人验证系统"""
@@ -160,10 +163,11 @@ class MultiSpeakerVerification:
                 print(f"  ○ {speaker_name}: Skipped | 跳过")
                 continue
             
-            audio_files = list(speaker_dir.glob("*.wav"))
+            audio_files = [f for f in speaker_dir.iterdir() 
+                          if f.is_file() and f.suffix.lower() in AUDIO_EXTENSIONS]
             
             if not audio_files:
-                print(f"  Warning | 警告: {speaker_name} has no audio files | 文件夹中无音频文件")
+                print(f"  Warning | 警告: {speaker_name} has no audio files | 文件夹中无音频文件 (supported: {', '.join(AUDIO_EXTENSIONS)})")
                 continue
             
             print(f"  - {speaker_name}: {len(audio_files)} samples | 个样本")
@@ -657,7 +661,8 @@ class MultiSpeakerVerification:
     
     def process_dataset(self):
         """Process entire dataset with prefetch optimization | 处理整个数据集（支持预加载优化）"""
-        audio_files = list(self.dataset_dir.glob("*.wav"))
+        audio_files = [f for f in self.dataset_dir.iterdir() 
+                      if f.is_file() and f.suffix.lower() in AUDIO_EXTENSIONS]
         print(f"\nFound {len(audio_files)} audio files | 找到 {len(audio_files)} 个音频文件")
         
         results = []
