@@ -28,7 +28,7 @@ A turnkey solution for **lossless batch extracting** multiple specific speakers 
 
 ```bash
 # Clone the repository | 克隆仓库
-git clone https://github.com/YOUR_USERNAME/Multi-Target-Speaker-Extraction.git
+git clone https://github.com/alexpsz/Multi-Target-Speaker-Extraction.git
 cd Multi-Target-Speaker-Extraction
 
 # Install dependencies | 安装依赖
